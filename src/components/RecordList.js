@@ -7,6 +7,7 @@ import app from '../firebase.js'
 const RecordList = (props) => {
 
     const {accessToken} = props;
+    
 
     // Variable to hold db details:
     const database = getDatabase(app);
@@ -30,6 +31,7 @@ const RecordList = (props) => {
 
     console.log(recordListState)
 
+// scan over the recordListState and make an axios call for each object inside
     for (let key in recordListState) {
         const recordId = recordListState[key].id
 
@@ -42,14 +44,20 @@ const RecordList = (props) => {
                 ids: recordId,
             }
         })
-        .then(data => console.log(data.data.albums[0].name))
+        .then(data => {
+            const ulElement = document.getElementById('recordDisplay')
+            const albumName = data.data.albums[0].name;
+            const liElement = document.createElement('li');
+            liElement.textContent = albumName;
+            ulElement.appendChild(liElement);
+        });
     }
 
 
 
         return (
             <>
-            <ul className="recordDisplay">
+            <ul id='recordDisplay'>
                 {/* {recordListState.map(singleRecord)
                 } */}
             </ul>
