@@ -26,34 +26,33 @@ const RecordList = (props) => {
             }
         }).catch((error) => {
             console.error(error);
-        });
-    }, [])
+        })
+    }, [dbRef])
+    
 
-    console.log(recordListState)
 
 // scan over the recordListState and make an axios call for each object inside
-    for (let key in recordListState) {
-        const recordId = recordListState[key].id
+    useEffect(()=> {
+        for (let key in recordListState) {
+            const recordId = recordListState[key].id
 
-        axios('https://api.spotify.com/v1/albums/', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-            params: {
-                ids: recordId,
-            }
-        })
-        .then(data => {
-            const ulElement = document.getElementById('recordDisplay')
-            const albumName = data.data.albums[0].name;
-            const liElement = document.createElement('li');
-            liElement.textContent = albumName;
-            ulElement.appendChild(liElement);
-        });
-    }
-
-
+            axios('https://api.spotify.com/v1/albums/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+                params: {
+                    ids: recordId,
+                }
+            }).then(data => {
+                const ulElement = document.getElementById('recordDisplay')
+                const albumName = data.data.albums[0].name;
+                const liElement = document.createElement('li');
+                liElement.textContent = albumName;
+                ulElement.appendChild(liElement);
+            });
+        }
+    },[recordListState])
 
         return (
             <>
