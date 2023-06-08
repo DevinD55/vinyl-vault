@@ -30,6 +30,7 @@ function App() {
   console.log('here be the access token', accessToken)
   return (
     <div className="App">
+      <Header/>
       <RecordList
         accessToken={accessToken}
       />

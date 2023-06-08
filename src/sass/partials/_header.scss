@@ -1,0 +1,37 @@
+@use './variables' as *;
+
+header {
+    height: 10vh;
+    background-color: $grey;
+
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+
+        .logo{
+            height: 4rem;
+            width: 4rem;
+            background-image: url('/assets/vinyl-vault-logo.png');
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+
+        }
+
+        nav{
+            width: 50%;
+
+            ul{
+                display: flex;
+                a{
+                    font-size: 1rem;
+                    color: $white;
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+    
+}

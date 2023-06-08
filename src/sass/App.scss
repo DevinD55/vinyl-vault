@@ -5,3 +5,12 @@
 // Typography + Variables
 @use './partials/_variables.scss';
 @use './partials/_typography.scss';
+
+
+// Header
+@use './partials/header.scss';
+
+
+// Record display
+@use './partials/recordList.scss';
+@use './partials/singleRecord.scss';

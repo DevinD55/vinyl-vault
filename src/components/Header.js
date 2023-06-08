@@ -1,13 +1,20 @@
 const Header = () => {
 
     return(
-        <header>
-            <figure className="logo">
+        <header className="header">
+            <div className="wrapper">
+                <figure className="logo">
                 <span className="sr-only">
                     Vinyl Vault Logo
                 </span>
-            </figure>
-            <h1>Show me a header!</h1>
+                </figure>
+                <nav className="navBar">
+                    <ul>
+                        <a>Collection</a>
+                        <a>Wishlist</a>
+                    </ul>
+                </nav>
+            </div>
         </header>
     )
 }

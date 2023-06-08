@@ -15,7 +15,7 @@ const RecordList = (props) => {
     const dbRef = ref(database);
     const [recordListState, setRecordListState] = useState([]);
 
-
+// Scans the firebase database to check if there are records available.
     useEffect(() => {
         get(child(dbRef , 'recordCollection')).then((snapshot) => {
             if (snapshot.exists()) {
@@ -27,7 +27,7 @@ const RecordList = (props) => {
         }).catch((error) => {
             console.error(error);
         })
-    }, [dbRef])
+    }, [accessToken])
     
 
 
@@ -46,9 +46,28 @@ const RecordList = (props) => {
                 }
             }).then(data => {
                 const ulElement = document.getElementById('recordDisplay')
-                const albumName = data.data.albums[0].name;
+                console.log(data.data.albums[0])
+                const album = data.data.albums[0];
+                const albumName = album.name;
+                const artistName = album.artists[0].name;
+                const albumCover = album.images[1].url;
+                const albumRelease = album.release_date;
+                const openLink = album.external_urls.spotify
+                
+
                 const liElement = document.createElement('li');
-                liElement.textContent = albumName;
+                liElement.innerHTML = `
+                <div class='recordTextContainer'>
+                    <h2 class='albumName'>${albumName}</h2>
+                    <h3 class='artistName'>${artistName}</h3>
+                    <h3>${albumRelease}</h3>
+                    
+                </div>
+                <div class='coverLinkContainer'>
+                    <img class='albumCover' src='${albumCover}'/>
+                </div>
+                `;
+                liElement.className = 'singleRecord'
                 ulElement.appendChild(liElement);
             });
         }
@@ -56,9 +75,8 @@ const RecordList = (props) => {
 
         return (
             <>
-            <ul id='recordDisplay'>
-                {/* {recordListState.map(singleRecord)
-                } */}
+            <ul id='recordDisplay'className='wrapper'>
+                
             </ul>
             
             
