@@ -30,35 +30,38 @@ function App() {
       
   console.log('here be the access token', accessToken);
 
-  const [playAlbumId, setPlayAlbumId] = useState('');
+  const [playAlbumId, setPlayAlbumId] = useState('')
 
-  // Onclick function to get the Album ID when cover art is clicked on.
-  // const getAlbumId = (event) => {
-  //   if(event.target.parentElement.parentElement.children[0].children[3].innerHTML){
-  //     setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
-  //     console.log(playAlbumId)
-  //   }else{
-  //     setPlayAlbumId(null)
-  //     console.log('album no clicky')
-  //   }
-  // };
+  const body = document.body
+  
   const getAlbumId = (event) => {
-      console.log(event.target)
-      setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
-      console.log(playAlbumId)
-    }
+    if (event.target.classList.contains('albumCover')) {
+        console.log(event.target)
+        setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
+        console.log(playAlbumId);
+      } else {
+        setPlayAlbumId('');
+        console.log('no clicky on an album');
+      }
+    };
+  
+  body.addEventListener('click', getAlbumId)
+
+  console.log(playAlbumId)
 
   return (
     <div className="App">
       <Header/>
       <RecordList
         accessToken={accessToken}
-        playAlbumId={playAlbumId}
-        getAlbumId={getAlbumId}
+        playAlbumId = {playAlbumId}
+        setPlayAlbumId = {setPlayAlbumId}
+        getAlbumId = {getAlbumId}
+
       />
       <RecordPlayer 
       accessToken={accessToken}
-      playAlbumId={playAlbumId}
+      playAlbumId = {playAlbumId}
       />
     </div>
   );

@@ -27,7 +27,6 @@ const RecordList = (props) => {
             console.error(error);
         })
     }, [dbRef])
-    
 
 
 // scan over the recordListState and make an axios call for each object inside
@@ -52,34 +51,40 @@ const RecordList = (props) => {
                 const albumCover = album.images[1].url;
                 const albumRelease = album.release_date;
                 const openLink = album.external_urls.spotify;
-                const albumId = album.id
-                
+                const albumId = album.id;
+
+
                 const liElement = document.createElement('li');
                 liElement.innerHTML = `
                 <div class='recordTextContainer'>
                     <h2 class='albumName'>${albumName}</h2>
                     <h3 class='artistName'>${artistName}</h3>
                     <h3>${albumRelease}</h3>
-                    <h3 class='idText'>${albumId}
+                    <h3 class='idText'>${albumId}/h3>
                     
                 </div>
-                <div class='coverLinkContainer' >
-                    <img class='albumCover' src='${albumCover}' onClick={getAlbumId}/>
+                <div 
+                    class='coverLinkContainer'
+                    >
+                    <img 
+                    class='albumCover'
+                    src='${albumCover}'
+                    />
                 </div>
                 `;
                 liElement.className = 'singleRecord'
                 ulElement.appendChild(liElement);
+                
             });
         }
     },[recordListState])
 
+
         return (
             <>
-            <ul id='recordDisplay'className='wrapper'>
-                
-            </ul>
-            
-            
+                <ul id='recordDisplay'className='wrapper'>
+                    
+                </ul>
             </>
             
         )
