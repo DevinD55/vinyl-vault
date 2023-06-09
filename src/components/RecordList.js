@@ -6,8 +6,7 @@ import app from '../firebase.js'
 
 const RecordList = (props) => {
 
-    const {accessToken} = props;
-    
+    const {accessToken, playAlbumId, setPlayAlbumId, getAlbumId} = props;
 
     // Variable to hold db details:
     const database = getDatabase(app);
@@ -27,7 +26,7 @@ const RecordList = (props) => {
         }).catch((error) => {
             console.error(error);
         })
-    }, [accessToken])
+    }, [dbRef])
     
 
 
@@ -52,19 +51,20 @@ const RecordList = (props) => {
                 const artistName = album.artists[0].name;
                 const albumCover = album.images[1].url;
                 const albumRelease = album.release_date;
-                const openLink = album.external_urls.spotify
+                const openLink = album.external_urls.spotify;
+                const albumId = album.id
                 
-
                 const liElement = document.createElement('li');
                 liElement.innerHTML = `
                 <div class='recordTextContainer'>
                     <h2 class='albumName'>${albumName}</h2>
                     <h3 class='artistName'>${artistName}</h3>
                     <h3>${albumRelease}</h3>
+                    <h3 class='idText'>${albumId}
                     
                 </div>
-                <div class='coverLinkContainer'>
-                    <img class='albumCover' src='${albumCover}'/>
+                <div class='coverLinkContainer' >
+                    <img class='albumCover' src='${albumCover}' onClick={getAlbumId}/>
                 </div>
                 `;
                 liElement.className = 'singleRecord'

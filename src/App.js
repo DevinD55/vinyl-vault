@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import RecordList from './components/RecordList';
+import RecordPlayer from './components/RecordPlayer';
 
 function App() {
 
@@ -27,12 +28,37 @@ function App() {
         .then( data => setAccessToken(data.access_token))
       }, [])
       
-  console.log('here be the access token', accessToken)
+  console.log('here be the access token', accessToken);
+
+  const [playAlbumId, setPlayAlbumId] = useState('');
+
+  // Onclick function to get the Album ID when cover art is clicked on.
+  // const getAlbumId = (event) => {
+  //   if(event.target.parentElement.parentElement.children[0].children[3].innerHTML){
+  //     setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
+  //     console.log(playAlbumId)
+  //   }else{
+  //     setPlayAlbumId(null)
+  //     console.log('album no clicky')
+  //   }
+  // };
+  const getAlbumId = (event) => {
+      console.log(event.target)
+      setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
+      console.log(playAlbumId)
+    }
+
   return (
     <div className="App">
       <Header/>
       <RecordList
         accessToken={accessToken}
+        playAlbumId={playAlbumId}
+        getAlbumId={getAlbumId}
+      />
+      <RecordPlayer 
+      accessToken={accessToken}
+      playAlbumId={playAlbumId}
       />
     </div>
   );
