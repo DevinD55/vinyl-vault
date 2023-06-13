@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import RecordList from './components/RecordList';
 import RecordPlayer from './components/RecordPlayer';
+import ActiveRecord from './components/ActiveRecord';
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
   const getAlbumId = (event) => {
     if (event.target.classList.contains('albumCover')) {
         console.log(event.target)
-        setPlayAlbumId(event.target.parentElement.parentElement.children[0].children[3].innerHTML);
+        setPlayAlbumId(event.target.parentElement.parentElement.children[1].children[3].innerHTML);
         console.log(playAlbumId);
       } else {
         setPlayAlbumId('');
@@ -57,8 +58,13 @@ function App() {
         playAlbumId = {playAlbumId}
         setPlayAlbumId = {setPlayAlbumId}
         getAlbumId = {getAlbumId}
-
       />
+      {playAlbumId && <ActiveRecord
+        accessToken={accessToken}
+        playAlbumId = {playAlbumId}
+        setPlayAlbumId = {setPlayAlbumId}
+        getAlbumId = {getAlbumId}
+      />}
       <RecordPlayer 
       accessToken={accessToken}
       playAlbumId = {playAlbumId}

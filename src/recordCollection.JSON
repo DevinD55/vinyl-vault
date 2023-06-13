@@ -3,22 +3,34 @@
         {
             "name": "News of the World",
             "id": "3TKTjR4E3LAMfRsPeRsNhT",
-            "genre": "Rock"
+            "genre": "Rock",
+            "purchaseMethod": "Second Hand",
+            "personalRating": "",
+            "albumBio": "My mom told me this was her favourite record growing up. Couldn't leave it in the crate!"
         },
         {
             "name": "Pony",
             "id": "4sypyREAQc69dg2X5XY4Df",
-            "genre": "Country"
+            "genre": "Country",
+            "purchaseMethod": "New",
+            "personalRating": "",
+            "albumBio": "A good friend turned me onto this record and Orville in 2019. His unique fashion sense and vioce hooked me early. It's been awesome to see his growth as an artist, but Pony remains my favorite album of his."
         },
         {
             "name": "Thriller",
             "id": "2ANVost0y2y52ema1E9xAZ",
-            "genre": "Pop"
+            "genre": "Pop",
+            "purchaseMethod": "Second Hand",
+            "personalRating": "",
+            "albumBio": "I was really suprised to find this in a second hand crate. I've never been an avid listener, but this felt like a must have for a growing collection."
         },
         {
             "name": "good kid, m.A.A.d city",
             "id": "3DGQ1iZ9XKUQxAUWjfC34w",
-            "genre": "Hip Hop/Rap"
+            "genre": "Hip Hop/Rap",
+            "purchaseMethod": "New",
+            "personalRating": "",
+            "albumBio": "This album was constanly on repeat throughout highschool. Kendrick just hits different on vinyl."
         },
         {
             "name": "The Freewheelin' Bob Dylan",
@@ -28,7 +40,10 @@
         {
             "name": "Legend - The Best of Bob Marley and the Wailers",
             "id": "4jKeipwuUTjlx9USNYdhZn",
-            "genre": "Reggae"
+            "genre": "Reggae",
+            "purchaseMethod": "Second Hand",
+            "personalRating": "",
+            "albumBio": "Another suprising find in a second hand crate, I can't say this gets a lot of play but"
         },
         {
             "name": "More Hot Rocks (Big Hits & Fazed Cookies",
@@ -234,6 +249,28 @@
             "name": "Beauty Behind the Madness",
             "id": "0P3oVJBFOv3TDXlYRhGL7s",
             "genre": "Pop"
+        }
+    ],
+    "wishlist": [
+        {
+            "name": "Songs of Praise",
+            "id": "3A1kutvBmC6czSsSv7aR5E",
+            "genre": "Punk"
+        },
+        {
+            "name": "Lost & Found",
+            "id": "3AlSuZnX4ZCab8eoWnnfbm",
+            "genre": "R&B/Soul"
+        },
+        {
+            "name": "Mordechai",
+            "id": "2IzUZlhtBvPQYs74KeG6fb",
+            "genre": "Instrumental"
+        },
+        {
+            "name": "Dogrel",
+            "id": "7wMhg0YqDuqylEVnLQQ02R",
+            "genre": "Rock"
         }
     ]
 }

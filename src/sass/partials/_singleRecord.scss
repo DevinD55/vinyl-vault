@@ -2,27 +2,39 @@
 
 .singleRecord{
     display: flex;
+    flex-direction: column;
     background: $grey;
-    width: 20rem;
-    height: 8rem;
+    width: 8.3rem;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
-    margin-top: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1.5rem 1rem;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 
 
     .recordTextContainer{
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
-        width: 65%;
+        width: 97%;
+        height: 3.3rem;
         justify-content: space-around;
+        align-items: flex-start;
+        margin-left:0.5rem;
+        position: relative;
+        top: -0.5rem;
         .albumName{
             font-weight: bolder;
-            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
         }
         .idText{
             display: none;
+        }
+        .artistName{
+            font-size: 0.6rem;
+        }
+        .releaseDate{
+            font-size: 0.6rem;
         }
     }
 
@@ -31,12 +43,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 90%;
+        position: relative;
+        top: -1rem;
+        margin-bottom: 0.5rem;
+        height: fit-content;
+        cursor: pointer;
 
         .albumCover{
             width: 7rem;
             height: 7rem;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+            margin: 0 0.3rem;
+
         }
     }
     
