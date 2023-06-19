@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import RecordList from './components/RecordList';
-import RecordPlayer from './components/RecordPlayer';
 import ActiveRecord from './components/ActiveRecord';
 
 function App() {
@@ -33,18 +32,17 @@ function App() {
 
   const [playAlbumId, setPlayAlbumId] = useState('')
 
-  const body = document.body
+  const body = document.body;
   
   const getAlbumId = (event) => {
-    if (event.target.classList.contains('albumCover')) {
-        console.log(event.target)
-        setPlayAlbumId(event.target.parentElement.parentElement.children[1].children[3].innerHTML);
-        console.log(playAlbumId);
-      } else {
-        setPlayAlbumId('');
-        console.log('no clicky on an album');
-      }
-    };
+  if (event.target.classList.contains('albumCover')) {
+    console.log(event.target);
+    setPlayAlbumId(event.target.parentElement.parentElement.children[1].children[3].innerHTML);
+    console.log(playAlbumId);
+  } else {
+    setPlayAlbumId('');
+  }
+};
   
   body.addEventListener('click', getAlbumId)
 
@@ -59,16 +57,12 @@ function App() {
         setPlayAlbumId = {setPlayAlbumId}
         getAlbumId = {getAlbumId}
       />
-      {playAlbumId && <ActiveRecord
+      {playAlbumId && (<ActiveRecord
         accessToken={accessToken}
         playAlbumId = {playAlbumId}
         setPlayAlbumId = {setPlayAlbumId}
         getAlbumId = {getAlbumId}
-      />}
-      <RecordPlayer 
-      accessToken={accessToken}
-      playAlbumId = {playAlbumId}
-      />
+      />)}
     </div>
   );
 }

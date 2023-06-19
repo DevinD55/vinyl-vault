@@ -1,3 +1,25 @@
+@use './variables' as *;
+
+.filterForm{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    .genreSelector{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 500;
+        width: 50%;
+        color: $spotifyGreen;
+        background-color: $darkGrey;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        text-align: center;
+    }
+}
+
 #recordDisplay{
     display: flex;
     flex-wrap: wrap;

@@ -3,7 +3,8 @@ const Header = () => {
     return(
         <header className="header">
             <div className="wrapper">
-                <figure className="logo">
+                <h1>VinylVault.</h1>
+                {/* <figure className="logo">
                 <span className="sr-only">
                     Vinyl Vault Logo
                 </span>
@@ -13,7 +14,7 @@ const Header = () => {
                         <a>Collection</a>
                         <a>Wishlist</a>
                     </ul>
-                </nav>
+                </nav> */}
             </div>
         </header>
     )

@@ -26,8 +26,9 @@ const ActiveRecord = (props) => {
                 const activeRecordWindow = document.getElementById('activeRecord');
                 activeRecordWindow.innerHTML='';
                 const activeContainer = document.createElement('div');
+                activeContainer.classList.add('activeContainer');
                 activeRecordWindow.appendChild(activeContainer);
-                // activeTrackContainer.appendChild(activeTrack);
+
 
                 const activeAlbum = response.data.albums[0];
                 const activeAlbumName = activeAlbum.name;
@@ -46,10 +47,16 @@ const ActiveRecord = (props) => {
                     <img src=${activeAlbumCover} alt=${activeAlbumName+'cover art'} />
                 </div>
                 <div class='activeAlbumTextContainer'>
-                    <h2>${activeAlbumName}</h2>
-                    <h3>${activeAlbumArtist}</h3>
+                    <a class='activeAlbumName' href='${activeAlbumLink}' target='_none'>${activeAlbumName}</a>
+                    <a class='activeAlbumArtist' href='${activeAlbumArtistLink}' target='_none'>${activeAlbumArtist} </a>
+                    <h4 class='activeAlbumRelease'>  ${activeAlbumReleaseDate} </h4>
+                    <h4 class='albumRating'> Popularity: ${activeAlbumRating} </h4>
+                    
+                </div>
+                <div class='activeAlbumTracksContainer'>
+                    <h4 class='albumTracklist'> Songs: </h4>
                     <ul id='activeTrackContainer'>
-
+                        
                     </ul>
                 </div>
                 `
@@ -57,9 +64,10 @@ const ActiveRecord = (props) => {
                 for (let key in activeAlbumTracks) {
                     if(key < activeAlbumTracks.length - 1) {
                         const activeTrackContainer = document.getElementById('activeTrackContainer');
+                        const trackNumber = parseInt(key) + 1;
                         const activeTrack = document.createElement('li');
-                        activeTrack.innerHTML = `
-                        <li>${activeAlbumTracks[key].name}</li>`
+                        activeTrack.innerHTML = `${trackNumber} - 
+                        ${activeAlbumTracks[key].name}`
 
                         activeTrackContainer.appendChild(activeTrack);
                     }
@@ -81,7 +89,7 @@ const ActiveRecord = (props) => {
 
     return(
         <>
-            <section className='wrapper' id='activeRecord'>
+            <section id='activeRecord'>
 
             </section>
         </>

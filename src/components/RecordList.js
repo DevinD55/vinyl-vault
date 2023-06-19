@@ -116,7 +116,7 @@ useEffect(() => {
         return (
             <>
                 <div className='filterForm'>
-                    <select
+                    <select class='genreSelector'
                         value={selectedGenre}
                         onChange={(e) => {setSelectedGenre(e.target.value)
                         ulElement.innerHTML = ''}
@@ -127,8 +127,6 @@ useEffect(() => {
                         <option key={index} value={genre}>{genre}</option>
                         ))}
                     </select>
-                    <button type='submit>'>Filter</button>
-
                 </div>
 
                 <ul id='recordDisplay'className='wrapper'>
