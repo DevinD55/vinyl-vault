@@ -76,13 +76,13 @@ function App() {
           hideActiveAlbum = {hideActiveAlbum}
         />
 
-        {playAlbumId && (<ActiveRecord
+        {/* {playAlbumId && (<ActiveRecord
           accessToken={accessToken}
           playAlbumId = {playAlbumId}
           setPlayAlbumId = {setPlayAlbumId}
           getAlbumId = {getAlbumId}
           hideActiveAlbum = {hideActiveAlbum}
-        />)}
+        />)} */}
       </div>
       
     </div>
