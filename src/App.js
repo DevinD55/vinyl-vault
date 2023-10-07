@@ -4,6 +4,8 @@ import axios from 'axios';
 import Header from './components/Header';
 import RecordList from './components/RecordList';
 import ActiveRecord from './components/ActiveRecord';
+import WelcomeScreen from './components/WelcomeScreen';
+
 
 function App() {
 
@@ -38,32 +40,53 @@ function App() {
   if (event.target.classList.contains('albumCover')) {
     console.log(event.target);
     setPlayAlbumId(event.target.parentElement.parentElement.children[1].children[3].innerHTML);
-    console.log(playAlbumId);
   } else {
     setPlayAlbumId('');
   }
 };
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    const recordCollection = document.getElementById('recordCollection');
+
+  const hideWelcomeScreen = () => {
+    welcomeScreen.classList.add('hidden');
+    recordCollection.classList.remove('hidden');
+    
+  }
   
   body.addEventListener('click', getAlbumId)
 
-  console.log(playAlbumId)
+  const hideActiveAlbum = () => {
+    setPlayAlbumId('');
+  }
 
   return (
     <div className="App">
-      <Header/>
-      <RecordList
-        accessToken={accessToken}
-        playAlbumId = {playAlbumId}
-        setPlayAlbumId = {setPlayAlbumId}
-        getAlbumId = {getAlbumId}
-      />
-      {playAlbumId && (<ActiveRecord
-        accessToken={accessToken}
-        playAlbumId = {playAlbumId}
-        setPlayAlbumId = {setPlayAlbumId}
-        getAlbumId = {getAlbumId}
-      />)}
+
+      <WelcomeScreen
+      hideWelcomeScreen = {hideWelcomeScreen}/>
+
+      <div class='hidden' id='recordCollection'>
+        <Header/>
+
+        <RecordList
+          accessToken={accessToken}
+          playAlbumId = {playAlbumId}
+          setPlayAlbumId = {setPlayAlbumId}
+          getAlbumId = {getAlbumId}
+          hideActiveAlbum = {hideActiveAlbum}
+        />
+
+        {playAlbumId && (<ActiveRecord
+          accessToken={accessToken}
+          playAlbumId = {playAlbumId}
+          setPlayAlbumId = {setPlayAlbumId}
+          getAlbumId = {getAlbumId}
+          hideActiveAlbum = {hideActiveAlbum}
+        />)}
+      </div>
+      
     </div>
+      
   );
 }
 

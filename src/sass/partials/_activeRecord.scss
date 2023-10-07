@@ -8,10 +8,10 @@
 .activeContainer {
     background-color: $darkGrey;
     width: 100%;
-    height: 15rem;
+    height: 100vh;
     overflow-y: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     color: $antiWhite;
     position: fixed;
     bottom: 0;
@@ -20,10 +20,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 1rem;
+        margin: 1rem 1rem;
         img{
-            height: 10rem;
-            width: 10rem;
+            height: 15rem;
+            width: 15rem;
             box-shadow: 0 4px 8px 0 rgba(0, 228, 53, 0.407), 0 6px 20px 0 rgba(55, 255, 0, 0.349);
         margin: 0 0.3rem;
         }
@@ -39,7 +39,8 @@
     }
 
     .activeAlbumTracksContainer{
-        width: 40%;
+        width: 70%;
+        align-self: center;
     }
 
     .albumTracklist{

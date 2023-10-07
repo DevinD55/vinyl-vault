@@ -5,7 +5,7 @@ import app from '../firebase.js'
 
 const RecordList = (props) => {
 
-    const {accessToken, playAlbumId, setPlayAlbumId, getAlbumId} = props;
+    const {accessToken, hideActiveAlbum} = props;
 
     // Variable to hold db details:
     const database = getDatabase(app);
@@ -88,7 +88,7 @@ useEffect(() => {
         `;
     
         if (scannedGenres.includes(albumGenre)) {
-            console.log('Already scanned this genre!');
+            // console.log('Already scanned this genre!');
         } else {
             scannedGenres.push(albumGenre)
             setDropdownGenreOptions([...scannedGenres]);
@@ -115,23 +115,23 @@ useEffect(() => {
 
         return (
             <>
-                <div className='filterForm'>
-                    <select class='genreSelector'
-                        value={selectedGenre}
-                        onChange={(e) => {setSelectedGenre(e.target.value)
-                        ulElement.innerHTML = ''}
-                            }
-                    >
-                        <option value="">All Genres</option>
-                        {dropdownGenreOptions.map((genre, index) => (
-                        <option key={index} value={genre}>{genre}</option>
-                        ))}
-                    </select>
-                </div>
+                    <div className='filterForm'>
+                        <select className='genreSelector'
+                            value={selectedGenre}
+                            onChange={(e) => {setSelectedGenre(e.target.value)
+                            ulElement.innerHTML = ''}
+                                }
+                        >
+                            <option value="">All Genres</option>
+                            {dropdownGenreOptions.map((genre, index) => (
+                            <option key={index} value={genre}>{genre}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                <ul id='recordDisplay'className='wrapper'>
-                    
-                </ul>
+                    <ul id='recordDisplay'className='wrapper'>
+                        
+                    </ul>
             </>
             
         )

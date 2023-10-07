@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const ActiveRecord = (props) => {
 
-    const {accessToken, playAlbumId} = props;
+    const {accessToken, playAlbumId, setPlayAlbumId, hideActiveAlbum} = props;
 
     useEffect(() => {
         const fetchAlbumData = async () => {    
@@ -24,11 +24,14 @@ const ActiveRecord = (props) => {
             const openActiveWindow = () => {
 
                 const activeRecordWindow = document.getElementById('activeRecord');
-                activeRecordWindow.innerHTML='';
-                const activeContainer = document.createElement('div');
-                activeContainer.classList.add('activeContainer');
-                activeRecordWindow.appendChild(activeContainer);
 
+                activeRecordWindow.innerHTML='';
+
+                const activeContainer = document.createElement('div');
+
+                activeContainer.classList.add('activeContainer');
+
+                activeRecordWindow.appendChild(activeContainer);
 
                 const activeAlbum = response.data.albums[0];
                 const activeAlbumName = activeAlbum.name;
@@ -41,8 +44,12 @@ const ActiveRecord = (props) => {
                 const activeAlbumLink = activeAlbum.external_urls.spotify;
 
                 console.log(activeAlbumTracks)
-
-                activeContainer.innerHTML=`
+                
+                activeContainer.innerHTML = `
+                    <div class='closeActiveAlbum'>
+                        <button onClick="hideActiveAlbum()">Close</button>
+                    </div>
+                
                 <div class='activeCoverLinkContainer'>
                     <img src=${activeAlbumCover} alt=${activeAlbumName+'cover art'} />
                 </div>
@@ -90,7 +97,7 @@ const ActiveRecord = (props) => {
     return(
         <>
             <section id='activeRecord'>
-
+                
             </section>
         </>
         

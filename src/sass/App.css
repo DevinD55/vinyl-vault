@@ -228,61 +228,234 @@ html {
 
 body {
   font-size: 200%;
+  background-color: #151313;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
-  width: 80%;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+#welcomeScreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #5DD57F;
+}
+
+.contentContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contentContainer p {
+  font-size: 2rem;
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+}
+.contentContainer button {
+  border: none;
+  background-color: #5DD57F;
+  color: #070707;
+  width: 250px;
+  height: 250px;
+  background-image: url("/assets/vinyl-vault-logo.png");
+  background-size: cover;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 h1, h2, h3 {
   font-family: "Courier New", Courier, monospace;
 }
 
-header {
-  height: 10vh;
-  background-color: #86836D;
+h1 {
+  font-size: 1.5rem;
+  color: #EBEBEB;
 }
-header .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-header .wrapper .logo {
-  height: 4rem;
-  width: 4rem;
-  background-image: url("/assets/vinyl-vault-logo.png");
-  background-position: center;
-  background-size: cover;
-  margin: 0;
-}
-header .wrapper nav {
-  width: 300px;
-}
-header .wrapper nav ul {
-  display: flex;
-  justify-content: space-around;
-}
-header .wrapper nav ul a {
+
+h2 {
   font-size: 1rem;
-  color: #ECF0F1;
+}
+
+h3 {
+  font-size: 0.8rem;
+}
+
+a {
+  font-size: 0.8rem;
+}
+
+.activeAlbumArtist, .activeAlbumName, .activeAlbumRelease, .activeAlbumRelease, .albumRating .albumTracklist {
+  font-family: "Courier New", Courier, monospace;
+  color: #EBEBEB;
+}
+
+.activeAlbumName {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.activeAlbumArtist {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.activeAlbumRelease, .albumRating, .albumTracklist {
+  font-size: 0.8rem;
+}
+
+header {
+  height: 5vh;
+  background-color: #151313;
+  text-align: center;
+}
+
+.filterForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1rem;
+}
+.filterForm .genreSelector {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+  width: 50%;
+  color: #5DD57F;
+  background-color: #363330;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
 }
 
 #recordDisplay {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .singleRecord {
   display: flex;
+  flex-direction: column;
+  background: #403A3A;
+  width: 8.3rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 228, 53, 0.407), 0 6px 20px 0 rgba(55, 255, 0, 0.349);
 }
 .singleRecord .recordTextContainer {
+  color: #EBEBEB;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 97%;
+  height: 3.3rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: 0.5rem;
+  position: relative;
+  top: -0.5rem;
 }
-.singleRecord .albumCover {
-  width: 35%;
+.singleRecord .recordTextContainer .albumName {
+  font-weight: bolder;
+  font-size: 0.8rem;
+}
+.singleRecord .recordTextContainer .idText {
+  display: none;
+}
+.singleRecord .recordTextContainer .artistName {
+  font-size: 0.6rem;
+}
+.singleRecord .recordTextContainer .releaseDate {
+  font-size: 0.6rem;
+}
+.singleRecord .coverLinkContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1rem;
+  margin-bottom: 0.5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+.singleRecord .coverLinkContainer .albumCover {
+  width: 7rem;
+  height: 7rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  margin: 0 0.3rem;
+}
+
+.activeRecord {
+  width: 100%;
+}
+
+.activeContainer {
+  background-color: #363330;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #EBEBEB;
+  position: fixed;
+  bottom: 0;
+}
+.activeContainer .activeCoverLinkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 1rem;
+}
+.activeContainer .activeCoverLinkContainer img {
+  height: 15rem;
+  width: 15rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 228, 53, 0.407), 0 6px 20px 0 rgba(55, 255, 0, 0.349);
+  margin: 0 0.3rem;
+}
+.activeContainer .activeAlbumTextContainer {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.activeContainer .activeAlbumTracksContainer {
+  width: 70%;
+  align-self: center;
+}
+.activeContainer .albumTracklist {
+  margin: 0.5rem 0;
+}
+.activeContainer #activeTrackContainer {
+  width: 100%;
+  height: 85%;
+  overflow-y: scroll;
+  margin: 0 0.3rem;
+  background-color: #363330;
+  color: #EBEBEB;
+  scroll-behavior: smooth;
+}
+.activeContainer #activeTrackContainer li {
+  font-size: 1rem;
 }/*# sourceMappingURL=App.css.map */
