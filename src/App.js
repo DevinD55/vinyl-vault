@@ -61,32 +61,16 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
 
-      <WelcomeScreen
-      hideWelcomeScreen = {hideWelcomeScreen}/>
-
-      <div class='hidden' id='recordCollection'>
-        <Header/>
-
-        <RecordList
-          accessToken={accessToken}
-          playAlbumId = {playAlbumId}
-          setPlayAlbumId = {setPlayAlbumId}
-          getAlbumId = {getAlbumId}
-          hideActiveAlbum = {hideActiveAlbum}
-        />
-
-        {/* {playAlbumId && (<ActiveRecord
-          accessToken={accessToken}
-          playAlbumId = {playAlbumId}
-          setPlayAlbumId = {setPlayAlbumId}
-          getAlbumId = {getAlbumId}
-          hideActiveAlbum = {hideActiveAlbum}
-        />)} */}
-      </div>
-      
-    </div>
-      
+      <RecordList
+        accessToken={accessToken}
+        playAlbumId = {playAlbumId}
+        setPlayAlbumId = {setPlayAlbumId}
+        getAlbumId = {getAlbumId}
+        hideActiveAlbum = {hideActiveAlbum}
+      />
+    </div>      
   );
 }
 

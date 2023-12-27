@@ -23,8 +23,7 @@ const RecordList = (props) => {
     const ulElement = document.getElementById('recordDisplay');
 
 // Scans the firebase database to check if there are records available.
-useEffect(() => {
-    const fetchData = async () => {
+const fetchData = async () => {
         try {
             const snapshot = await get(child(dbRef, 'recordCollection'));
         if (snapshot.exists()) {
@@ -37,8 +36,9 @@ useEffect(() => {
     }
     };
 
+useEffect(() => {
     fetchData();
-    }, [dbRef]);
+}, [dbRef]);
 
     useEffect(() => {
     const fetchAlbumData = async () => {
@@ -88,7 +88,7 @@ useEffect(() => {
         `;
     
         if (scannedGenres.includes(albumGenre)) {
-            // console.log('Already scanned this genre!');
+            console.log('Already scanned this genre!');
         } else {
             scannedGenres.push(albumGenre)
             setDropdownGenreOptions([...scannedGenres]);
