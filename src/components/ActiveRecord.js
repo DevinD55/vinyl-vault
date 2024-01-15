@@ -17,7 +17,6 @@ const ActiveRecord = (props) => {
                     ids: playAlbumId
                 }
             });
-            console.log(response.data);
 
             
 
@@ -43,7 +42,6 @@ const ActiveRecord = (props) => {
                 const activeAlbumReleaseDate = activeAlbum.release_date;
                 const activeAlbumLink = activeAlbum.external_urls.spotify;
 
-                console.log(activeAlbumTracks)
                 
                 activeContainer.innerHTML = `
                     <div class='closeActiveAlbum'>
@@ -91,7 +89,6 @@ const ActiveRecord = (props) => {
         fetchAlbumData();
     }, [ playAlbumId]);
 
-    console.log(playAlbumId)
 
 
     return(

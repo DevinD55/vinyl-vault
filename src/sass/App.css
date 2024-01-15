@@ -243,12 +243,6 @@ body {
   display: none;
 }
 
-#welcomeScreen {
-  width: 100vw;
-  height: 100vh;
-  background-color: #5DD57F;
-}
-
 .contentContainer {
   height: 100%;
   display: flex;

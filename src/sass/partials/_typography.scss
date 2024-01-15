@@ -1,7 +1,13 @@
 @use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Teko:wght@300&display=swap');
 
-h1, h2 , h3 {
-    font-family: 'Courier New', Courier, monospace;
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+h2, h3 {
+    font-family: sans-serif;
 }
 
 h1{
@@ -25,7 +31,7 @@ a{
 // Active Album Styles
 
 .activeAlbumArtist, .activeAlbumName, .activeAlbumRelease, .activeAlbumRelease, .albumRating .albumTracklist {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Inter', sans-serif;
     color: $antiWhite
 }
 

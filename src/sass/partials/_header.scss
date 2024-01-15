@@ -1,7 +1,61 @@
-@use './variables' as *;
+@use "./variables" as *;
 
-header {
-    height: 5vh;
-    background-color: $nightBlack;
-    text-align: center;
+.header {
+  background-color: $nightBlack;
+}
+
+.logoText {
+  align-self: center;
+}
+
+.headerWrapper {
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageLink {
+  position: relative;
+  padding: 15px 0;
+}
+
+.pageButton {
+  font-family: "Bebas Neue", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pageButton::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  background: none repeat scroll 0 0 transparent;
+  height: 2px;
+  width: 0;
+  background: $spotifyGreen;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+.pageButton:hover::after {
+  width: 100%;
+  left: 0;
 }

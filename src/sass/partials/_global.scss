@@ -1,8 +1,14 @@
 @use './variables' as *;
 
+
 * {
     margin: 0;
     padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
 }
 
 body{
@@ -20,6 +26,11 @@ body{
 
 .hidden {
     display: none;
+}
+
+.white{
+    font-size: 3rem;
+    color: white;
 }
 
 

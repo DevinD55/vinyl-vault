@@ -1,10 +1,6 @@
 // GLOBAL
 @use './partials/_setup.scss';
 @use './partials/_global.scss';
-
-// Welcome Screen
-@use './partials/_welcomeScreen.scss';
-
 // Typography + Variables
 @use './partials/_variables.scss';
 @use './partials/_typography.scss';
@@ -20,3 +16,10 @@
 
 // Active Record / Inspecting Record
 @use './partials/activeRecord.scss';
+
+// Search for Recommendations
+@use './partials/search.scss';
+@use './partials/searchResult.scss';
+
+// Icons
+@use './partials/icons.scss'
