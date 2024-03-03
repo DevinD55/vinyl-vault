@@ -16,6 +16,7 @@ body{
     background-color: $nightBlack;
     display: flex;
     flex-direction: column;
+    min-width: 330px;
 }
 
 .wrapper {
@@ -33,4 +34,12 @@ body{
     color: white;
 }
 
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) {
+    outline: 2px solid red; /* Change the outline color and style */
+}
 
+/* Customize keyboard tab focus style */
+*:focus {
+    outline: 2px solid blue; /* Change the outline color and style */
+}
