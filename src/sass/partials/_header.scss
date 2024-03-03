@@ -28,6 +28,14 @@
   padding: 15px 0;
 }
 
+.logoLink {
+  text-decoration: none;
+  color: inherit; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pageButton {
   font-family: "Bebas Neue", sans-serif;
   color: #fff;

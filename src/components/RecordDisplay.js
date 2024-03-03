@@ -42,9 +42,12 @@ const RecordDisplay = (props) => {
   
     useEffect(() => {
       const fetchAlbumData = async () => {
+        const scannedGenres = [];
+        const dropdownOptions = [];
+    
         for (let key in recordListState) {
-        const recordId = recordListState[key].id;
-  
+          const recordId = recordListState[key].id;
+    
           try {
             const response = await axios.get(
               "https://api.spotify.com/v1/albums/",
@@ -63,9 +66,10 @@ const RecordDisplay = (props) => {
               if (albumName.length > 15) {
                 return albumName.slice(0, 20) + "...";
               }
+              return albumName;
             };
             const albumRelease = album.release_date;
-  
+    
             const shortAlbumName = shortenString(albumName);
             const artistName = album.artists[0].name;
             const albumCover = album.images[1].url;
@@ -73,30 +77,27 @@ const RecordDisplay = (props) => {
             const openLink = album.external_urls.spotify;
             const albumId = album.id;
             const albumGenre = recordListState[key].genre;
-  
+    
+            // Check if the genre is already scanned
+            if (!scannedGenres.includes(albumGenre)) {
+              scannedGenres.push(albumGenre);
+              dropdownOptions.push(albumGenre);
+            }
+    
             const liElement = document.createElement("li");
             liElement.innerHTML = `
-          <div class='coverLinkContainer'>
-              <img class='albumCover' src='${albumCover}'/>
-          </div>
-          <div class='recordTextContainer'>
-              <h2 class='albumName'>${shortAlbumName}</h2>
-              <h3 class='artistName'>${artistName}</h3>
-              <h3 class='releaseDate'>${releaseYear}</h3>
-              <h3 class='idText'>${albumId}</h3>
-          </div>
-          `;
-  
-            if (scannedGenres.includes(albumGenre)) {
-            } else {
-              scannedGenres.push(albumGenre);
-              setDropdownGenreOptions([...scannedGenres]);
-            }
-  
-            if (selectedGenre.includes(albumGenre)) {
-              liElement.className = "singleRecord";
-              ulElement.appendChild(liElement);
-            } else if (selectedGenre === "") {
+              <div class='coverLinkContainer'>
+                  <img class='albumCover' src='${albumCover}'/>
+              </div>
+              <div class='recordTextContainer'>
+                  <h2 class='albumName'>${shortAlbumName}</h2>
+                  <h3 class='artistName'>${artistName}</h3>
+                  <h3 class='releaseDate'>${releaseYear}</h3>
+                  <h3 class='idText'>${albumId}</h3>
+              </div>
+              `;
+    
+            if (!selectedGenre || selectedGenre === albumGenre) {
               liElement.className = "singleRecord";
               ulElement.appendChild(liElement);
             }
@@ -104,12 +105,16 @@ const RecordDisplay = (props) => {
             console.error(error);
           }
         }
+    
+        // Update dropdown options after scanning all genres
+        setDropdownGenreOptions(dropdownOptions);
       };
-  
+    
       if (recordListState.length > 0) {
         fetchAlbumData();
       }
-    }, [recordListState, accessToken, selectedGenre]);
+    }, [recordListState, accessToken, selectedGenre, ulElement]);
+    
 
   return (
     <>
